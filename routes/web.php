@@ -12,8 +12,8 @@ Route::group(
         'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
     ], function(){ //...
         Route::get('test',function(){
-            // return "taha";
-            return view('dashboard.index');
+
+            return view('dashboard.Auth.login');
         });
     });
 

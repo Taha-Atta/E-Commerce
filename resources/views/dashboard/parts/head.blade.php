@@ -64,7 +64,7 @@
         href="{{ asset('assets/dashboard') }}/css/pages/dashboard-ecommerce.css">
     <!-- END Page Level CSS-->
     <!-- BEGIN Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/dashboard') }}/css/style.css">
     <!-- END Custom CSS-->
     @endif
 
