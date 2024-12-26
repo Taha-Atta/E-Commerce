@@ -7,6 +7,8 @@ return [
     'edit_role'=>'Edit Authorization',
     'delete_role'=>'Delete Authorization',
     'role_name'=>'Authorization Name',
+    'role_name-arabic'=>'Role Name Arabic',
+    'role_name-english'=>'Role Name English',
     'role_description'=>'Authorization Description',
     'permissions'=>'Permissions',
     'create_permission'=>'Create Permission',
@@ -17,6 +19,7 @@ return [
 
     'success_msg'=>'Operation Done Successfuly',
     'error_msg'=>'Operation Failed',
+    'error_msg_role'=>'You can not delete this role because it has admins. Delete the admins first',
     'add'=>'Add New',
     'operations'=>'Operations',
     'created_at'=>'Created At',

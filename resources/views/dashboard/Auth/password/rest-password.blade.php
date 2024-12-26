@@ -26,7 +26,7 @@
                                     <form class="form-horizontal" action="{{ route('dashboard.new.password') }}"
                                         method="post">
                                         @csrf
-                                        <input type="email" hidden name="email" value="{{ $email }}">
+                                        <input type="email" hidden name="email" value="{{ $email }}"> 
                                         <fieldset class="form-group position-relative has-icon-left">
                                             <input type="password" name="password"
                                                 class="form-control form-control-lg input-lg" id="password"

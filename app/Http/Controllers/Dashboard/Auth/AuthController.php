@@ -33,7 +33,7 @@ class AuthController extends Controller implements HasMiddleware
         if (Auth::guard('admin')->attempt(['email' => $email, 'password' => $password], $request->remmber)) {
 
             // return to_route('dashboard.home');
-            return redirect()->intended(route('dashboard.home'));
+            return redirect()->intended(route('dashboard.welcome'));
         } else {
 
             return redirect()->back()->withErrors(['email' => __('auth.not_match')]);

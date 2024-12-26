@@ -23,6 +23,7 @@ class ForgetPassword extends Controller
         ]);
 
         $admin = Admin::where('email', $request->email)->first();
+        
         if (!$admin) {
             return redirect()->back()->with('error' , __('auth.not_match'));
         }
@@ -66,7 +67,9 @@ class ForgetPassword extends Controller
             'password' => "required|confirmed|min:8",
             'password_confirmation' => "required",
         ]);
+
         $admin = Admin::where('email', $request->email)->first();
+
         if (!$admin) {
             return redirect()->back()->withErrors(['password' => __('auth.not_match')]);
         }

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\WelcomeContrller;
 use App\Http\Controllers\Dashboard\Auth\AuthController;
 use App\Http\Controllers\Dashboard\Auth\ForgetPassword;
+use App\Http\Controllers\Dashboard\RolesController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 
@@ -35,7 +36,13 @@ Route::group(
         Route::group(['middleware'=>'auth:admin'],function(){
 
             //*****************************welcome******************************* */
-            Route::get('welcome',[WelcomeContrller::class,'index'])->name('home');
+            Route::get('welcome',[WelcomeContrller::class,'index'])->name('welcome');
+
+              //*****************************Roles Controller******************************* */
+              Route::group(['middleware'=>'can:roles'],function(){
+
+                  Route::resource('roles',RolesController::class);
+              });
 
 
 
