@@ -26,7 +26,7 @@ class AuthController extends Controller implements HasMiddleware
 
     public function login(AdminLoginRequest $request)
     {
-
+       
         $email = $request->email;
         $password = $request->password;
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\AdminController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Dashboard\WelcomeContrller;
@@ -42,6 +43,13 @@ Route::group(
               Route::group(['middleware'=>'can:roles'],function(){
 
                   Route::resource('roles',RolesController::class);
+              });
+              //*****************************admins Controller******************************* */
+              Route::group(['middleware'=>'can:admins'],function(){
+
+                  Route::resource('admins',AdminController::class);
+                  Route::get('admins/status/{id}',[AdminController::class,'changeStatus'])->name('admins.status');
+
               });
 
 

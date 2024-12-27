@@ -11,7 +11,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Admin extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable , SoftDeletes;
+    use HasFactory, Notifiable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -50,7 +50,7 @@ class Admin extends Authenticatable
     }
     public function role()
     {
-        return $this->belongsTo(Role::class , 'role_id');
+        return $this->belongsTo(Role::class, 'role_id');
     }
     public function getStatusAttribute($value)
     {
@@ -61,16 +61,14 @@ class Admin extends Authenticatable
 
         $role = $this->role;
 
-        if(!$role){
+        if (!$role) {
             return false;
         }
 
-        foreach($role->permession as $permession){
-            if($config_permession == $permession ?? false){
-                  return true;
+        foreach ($role->permession as $permession) {
+            if ($config_permession == $permession ?? false) {
+                return true;
             }
         }
-
     }
-
 }

@@ -3,6 +3,7 @@
 return [
     'dashboard' => 'لوحة القيادة',
     'roles'=>'الصلاحيات',
+   
     'create_role'=>'اضافة صلاحية',
     'edit_role'=>'تعديل صلاحية',
     'delete_role'=>'حذف صلاحية',
@@ -12,6 +13,11 @@ return [
     'role_description'=>'وصف الصلاحية',
     'role_permissions'=>'صلاحيات الصلاحية',
     'role'=>'صلاحية',
+    'admins'=>'المسؤلين',
+    'create_admin'=>' انشاء ادمن',
+    'admin_name'=>' اسم ادمن',
+    'admin_name-arabic'=>'ادمن بالعربى ',
+    'admin_name-english'=>'ادمن بالانجليزر',
 
 
     'add'=>'اضافة',
