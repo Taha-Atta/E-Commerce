@@ -3,7 +3,7 @@
 return [
     'dashboard' => 'لوحة القيادة',
     'roles'=>'الصلاحيات',
-   
+
     'create_role'=>'اضافة صلاحية',
     'edit_role'=>'تعديل صلاحية',
     'delete_role'=>'حذف صلاحية',
@@ -61,6 +61,7 @@ return [
     'shipping_price'=>'سعر الشحن ',
     'num_of_cities'=>' عدد المدن',
     'country'=>'الدوله',
+    
     'shipping'=>'الشحن',
 
     'governorates'=>'المحافظات',

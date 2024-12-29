@@ -13,6 +13,7 @@
     <!-- ////////////////////////////////////////////////////////////////////////////-->
     @include('dashboard.parts.footer')
     @include('dashboard.parts.scripts')
+    @stack('js')
 </body>
 
 </html>

@@ -67,7 +67,7 @@ return [
     'num_of_cities'=>'Number Of Cities',
     'country'=>'Country',
     'governorates'=>'Governorates',
-    'shippping'=>'Shipping',
+    'shipping'=>'Shipping',
     'governorates_table'=>'Governorates Table',
     'countries_table'=>' Countries Table',
     'admins_table'=>' Admins Table',
