@@ -1,4 +1,4 @@
-<div class="content-header-right col-md-6 col-12">
+{{-- <div class="content-header-right col-md-6 col-12">
     <div class="dropdown float-md-right">
         <button class="btn btn-danger dropdown-toggle round btn-glow px-2" id="dropdownBreadcrumbButton"
             type="button" data-toggle="dropdown" aria-haspopup="true"
@@ -11,4 +11,4 @@
                     class="la la-cog"></i> Settings</a>
         </div>
     </div>
-</div>
+</div> --}}

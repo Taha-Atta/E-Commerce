@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\AdminRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
@@ -93,6 +94,7 @@ class AdminController extends Controller
 
         $admin = Admin::find($id);
         $admin->delete();
+        Cache::forget('admins_count');
         flash()->success(__('dashboard.success_msg'));
         return to_route('dashboard.admins.index');
     }

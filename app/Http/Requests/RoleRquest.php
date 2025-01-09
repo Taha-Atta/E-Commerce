@@ -25,8 +25,8 @@ class RoleRquest extends FormRequest
         return [
                 // return $request;
 
-            // 'role.*' => ['required','string','max:100'],
-            'role.*' => ['required','string','max:100'],
+
+            'role.*' => ['required','string','max:100',UniqueTranslationRule::for('categories')->ignore($this->id)],
             'permession' =>'required|array|min:1',
 
         ];

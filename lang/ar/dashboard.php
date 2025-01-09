@@ -17,7 +17,7 @@ return [
     'create_admin'=>' انشاء ادمن',
     'admin_name'=>' اسم ادمن',
     'admin_name-arabic'=>'ادمن بالعربى ',
-    'admin_name-english'=>'ادمن بالانجليزر',
+    'admin_name-english'=>'ادمن بالانجليزى',
 
 
     'add'=>'اضافة',
@@ -61,7 +61,7 @@ return [
     'shipping_price'=>'سعر الشحن ',
     'num_of_cities'=>' عدد المدن',
     'country'=>'الدوله',
-    
+
     'shipping'=>'الشحن',
 
     'governorates'=>'المحافظات',
@@ -72,5 +72,46 @@ return [
     'select_shipping_price'=>'اختار سعر الشحن',
     'change_price'=>' تغير السعر',
     'permissions'=> 'الصلاحيات',
+
+    'categories'=>'الاقسام',
+    'brands'=>'العلامات التجاريه',
+    'category_create'=>'انشاء قسم ',
+    'brand_create'=>'انشاء علامه تجاريه ',
+    'table_yajra_paragraph'=>'جدول ديناميكي يعرض البيانات من قاعدة البيانات مع ميزات مثل البحث، الفرز، إظهار وإخفاء الأعمدة، وخيارات لتصدير البيانات إلى Excel أو طباعتها أو نسخها.',
+
+    'are_you_sure'=>'هل انت متاكد؟',
+    'name_ar'=>'الاسم بالعربية',
+    'name_en'=>'الاسم بالانجليزية',
+    'image'=>'الصورة',
+
+    'select_Parent'=>'اختارالصنف الرئيسي',
+    'form_edit'=>'الشكل تعديل',
+    'category_edit'=>'تعديل القسم',
+    'create_category'=>'انشاء قسم',
+    'logo'=>'الشعار',
+    'products_count'=>'عدد المنتجات',
+    'not_found'=>'لا يوجد',
+
+    'admins'=>' المسؤلين',
+    'categories'=>' الاقسام',
+    'brands'=>' العلامات التجاريه',
+    'products'=>' المنتجات',
+    'orders'=>'  الطلبات',
+    'settings'=>' الاعدادات',
+    'shipping'=>' الشحن',
+    'roles'=>' الصلاحيات',
+    'create_brand'=>'انشاء علامه تجاريه',
+
+    'coupons'=>' الكوبونات',
+    'create_coupon'=>'انشاء كوبون',
+    'edit_coupon'=>' تعديل كوبون',
+    'limitation'=>' الحد المسموح ',
+    'discount'=>' %الخصم',
+    'code'=>'Code',
+    'is_active'=>' هل مفعله',
+    'start_date'=>' تاريخ البدء',
+    'end_date'=>' تاريخ الانتهاء',
+    'time_used'=>' عدد مرات الاستخدام',
+    'coupons_table'=>'جدول الكوبونات'
 
 ];

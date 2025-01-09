@@ -45,7 +45,9 @@ class WorldController extends Controller
         //    return response()->json([ 'status'=>true,'message'=>__('dashboard.success_msg'),'data'=>$country1],200);
 
 
-        $country->is_active == 'Active' || $country->is_active == 'مفعل' ?  $country->update(['is_active' => 0]) : $country->update(['is_active' => 1]);
+        $country->is_active == 'Active' || $country->is_active == 'مفعل'
+        ?  $country->update(['is_active' => 0])
+        : $country->update(['is_active' => 1]);
 
 
         flash()->success(__('dashboard.success_msg'));

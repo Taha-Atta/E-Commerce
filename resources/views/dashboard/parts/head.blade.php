@@ -43,8 +43,14 @@
         href="{{ asset('assets/dashboard') }}/css-rtl/pages/dashboard-ecommerce.css">
     <!-- END Page Level CSS-->
     <!-- BEGIN Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="../../../assets/css/style-rtl.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/dashboard') }}/css/style-rtl.css">
     <!-- END Custom CSS-->
+
+    {{-- <style>
+        .dt-search {
+            margin-right: 90ch !important;
+        }
+    </style> --}}
     @else
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/dashboard') }}/css/vendors.css">
     <!-- BEGIN MODERN CSS-->
@@ -67,6 +73,29 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/dashboard') }}/css/style.css">
     <!-- END Custom CSS-->
     @endif
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.2.0/css/buttons.dataTables.min.css" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/v/bs5/jszip-3.10.1/dt-2.1.8/af-2.7.0/b-3.2.0/b-colvis-3.2.0/b-html5-3.2.0/b-print-3.2.0/cr-2.0.4/date-1.5.4/fc-5.0.4/fh-4.0.1/kt-2.12.1/r-3.0.3/rg-1.5.1/rr-1.5.0/sc-2.4.3/sb-1.8.1/sp-2.3.3/sl-2.1.0/sr-1.4.1/datatables.min.css" rel="stylesheet">
+
+
+    <style>
+        table.dataTable thead th {
+            text-align: center;
+        }
+        table.dataTable tbody tr {
+            text-align: center;
+        }
+    </style>
+
+    {{-- file input --}}
+<link rel="stylesheet" href="{{ asset('vendor/file-input/css/fileinput.min.css') }}">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" crossorigin="anonymous">
+
+{{-- end file input --}}
+
+
 
 
 </head>

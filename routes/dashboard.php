@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\AdminController;
 
+use App\Http\Controllers\Dashboard\BrandController;
 use App\Http\Controllers\Dashboard\RolesController;
 use App\Http\Controllers\Dashboard\WorldController;
 use App\Http\Controllers\Dashboard\WelcomeContrller;
+use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\Auth\AuthController;
 use App\Http\Controllers\Dashboard\Auth\ForgetPassword;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -80,7 +82,30 @@ Route::group(
                 });
             });
 
-             //*********************************** End Shipping ************************************************** */
+            //*********************************** End Shipping ************************************************** */
+
+            //*****************************categories Controller******************************* */
+            Route::group(['middleware' => 'can:categories'], function () {
+
+                Route::resource('categories', CategoryController::class);
+                Route::get('categories-all',[CategoryController::class, 'getAll'])->name('Categories.all');
+                Route::get('categories/status/{id}', [CategoryController::class, 'changeStatus'])->name('categories.status');
+
+            });
+
+            //***************************************End********************************************************** */
+
+            //*****************************admins Controller******************************* */
+            Route::group(['middleware' => 'can:brands'], function () {
+
+                Route::resource('brands', BrandController::class);
+                Route::get('brands-all',[BrandController::class, 'getAll'])->name('brands.all');
+                Route::get('brands/status/{id}', [BrandController::class, 'changeStatus'])->name('brands.status');
+                Route::post('brands/image/{id}', [BrandController::class, 'deleteImage'])->name('brands.imageBrand');
+
+            });
+
+            //***************************************End********************************************************** */
 
 
         });

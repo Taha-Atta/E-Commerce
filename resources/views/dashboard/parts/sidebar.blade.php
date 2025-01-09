@@ -1,19 +1,35 @@
 <div class="main-menu menu-fixed menu-dark menu-accordion menu-shadow" data-scroll-to-active="true">
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-            <li class=" nav-item"><a href="index.html"><i class="la la-home"></i><span class="menu-title"
-                        data-i18n="nav.dash.main">Dashboard</span><span
-                        class="badge badge badge-info badge-pill float-right mr-2">3</span></a>
-                <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href="dashboard-ecommerce.html"
-                            data-i18n="nav.dash.ecommerce">eCommerce</a>
-                    </li>
-                    <li><a class="menu-item" href="dashboard-crypto.html" data-i18n="nav.dash.crypto">Crypto</a>
-                    </li>
-                    <li><a class="menu-item" href="dashboard-sales.html" data-i18n="nav.dash.sales">Sales</a>
-                    </li>
-                </ul>
-            </li>
+            @can('categories')
+                <li class=" nav-item"><a href="index.html"><i class="la la-home"></i><span class="menu-title"
+                            data-i18n="nav.dash.main">{{ __('dashboard.categories') }}</span><span
+                            class="badge badge badge-info badge-pill float-right mr-2">{{ $categories_count }}</span></a>
+                    <ul class="menu-content">
+                        <li class="active"><a class="menu-item" href="{{ route('dashboard.categories.index') }}"
+                                data-i18n="nav.dash.ecommerce">{{ __('dashboard.categories') }}</a>
+                        </li>
+                        <li><a class="menu-item" href="{{ route('dashboard.categories.create') }}"
+                                data-i18n="nav.dash.crypto">{{ __('dashboard.category_create') }}</a>
+                        </li>
+
+                    </ul>
+                </li>
+            @endcan
+
+
+
+            @can('brands')
+                <li class=" nav-item"><a href="index.html"><i class="la la-home"></i><span class="menu-title"
+                            data-i18n="nav.dash.main">{{ __('dashboard.brands') }}</span><span
+                            class="badge badge badge-info badge-pill float-right mr-2">{{ $brands_count }}</span></a>
+                    <ul class="menu-content">
+                        <li class="active"><a class="menu-item" href="{{ route('dashboard.brands.index') }}"
+                                data-i18n="nav.dash.ecommerce">{{ __('dashboard.brands') }}</a>
+                        </li>
+                    </ul>
+                </li>
+            @endcan
 
             @can('roles')
                 <li class=" nav-item"><a href="{{ route('dashboard.roles.index') }}"><i class="la la-television"></i><span
@@ -30,7 +46,10 @@
             @endcan
             @can('admins')
                 <li class=" nav-item"><a href="{{ route('dashboard.admins.index') }}"><i class="la la-television"></i><span
-                            class="menu-title" data-i18n="nav.templates.main">{{ __('dashboard.admins') }}</span></a>
+                            class="menu-title" data-i18n="nav.templates.main">{{ __('dashboard.admins') }}</span>
+                            <span
+                            class="badge badge badge-info badge-pill float-right mr-2">{{ $admins_count }}</span>
+                        </a>
                     <ul class="menu-content">
                         <li><a class="menu-item" href="{{ route('dashboard.admins.index') }}"
                                 data-i18n="nav.templates.vert.classic_menu">{{ __('dashboard.admins') }}</a>
@@ -42,17 +61,18 @@
                 </li>
             @endcan
             @can('global_shipping')
-            <li class=" nav-item"><a href="#"><i class="la la-television"></i>
-                <span class="menu-title" data-i18n="nav.templates.main">{{ __('dashboard.shipping') }} </span></a>
-                <ul class="menu-content">
-                  <li>
-                      <a class="menu-item" href="{{route('dashboard.countries.index')}}" data-i18n=""> {{ __('dashboard.shipping') }}  </a>
-                  </li>
-                  <li>
-                      <a class="menu-item" href="#" data-i18n="">{{ __('dashboard.shipping_price') }} </a>
-                  </li>
-                </ul>
-              </li>
+                <li class=" nav-item"><a href="#"><i class="la la-television"></i>
+                        <span class="menu-title" data-i18n="nav.templates.main">{{ __('dashboard.shipping') }} </span></a>
+                    <ul class="menu-content">
+                        <li>
+                            <a class="menu-item" href="{{ route('dashboard.countries.index') }}" data-i18n="">
+                                {{ __('dashboard.shipping') }} </a>
+                        </li>
+                        <li>
+                            <a class="menu-item" href="#" data-i18n="">{{ __('dashboard.shipping_price') }} </a>
+                        </li>
+                    </ul>
+                </li>
             @endcan
             <li class=" navigation-header">
                 <span data-i18n="nav.category.layouts">Layouts</span><i class="la la-ellipsis-h ft-minus"
@@ -87,7 +107,8 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a class="menu-item" href="#" data-i18n="nav.page_layouts.3_columns_detached.main">Content
+                    <li><a class="menu-item" href="#"
+                            data-i18n="nav.page_layouts.3_columns_detached.main">Content
                             Det. Sidebar</a>
                         <ul class="menu-content">
                             <li><a class="menu-item" href="layout-content-detached-left-sidebar.html"
@@ -1012,8 +1033,8 @@
                     </li>
                 </ul>
             </li>
-            <li class=" nav-item"><a href="form-repeater.html"><i class="la la-repeat"></i><span class="menu-title"
-                        data-i18n="nav.form_repeater.main">Form Repeater</span></a>
+            <li class=" nav-item"><a href="form-repeater.html"><i class="la la-repeat"></i><span
+                        class="menu-title" data-i18n="nav.form_repeater.main">Form Repeater</span></a>
             </li>
             <li class=" navigation-header">
                 <span data-i18n="nav.category.tables">Tables</span><i class="la la-ellipsis-h ft-minus"
