@@ -10,6 +10,7 @@ use App\Http\Controllers\Dashboard\WelcomeContrller;
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\Auth\AuthController;
 use App\Http\Controllers\Dashboard\Auth\ForgetPassword;
+use App\Http\Controllers\Dashboard\CouponController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 
@@ -23,16 +24,15 @@ Route::group(
     ],
     function () { //...
 
-        //**************************************login**************************************************/
+        //*************************************************login**************************************************/
 
         Route::get('login', [AuthController::class, 'loginForm'])->name('login.form');
         Route::post('login', [AuthController::class, 'login'])->name('login.post');
 
         Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
-        //***************************************End************************************************** */
 
-        //*************************************Resr password******************************************* */
+        //************************************************Resr password******************************************* */
         Route::get('enter/email', [ForgetPassword::class, 'enterEmail'])->name('enter.email');
         Route::post('send/code', [ForgetPassword::class, 'sendCode'])->name('send.code');
         Route::get('confirm/code/{email}', [ForgetPassword::class, 'getconfirmCode'])->name('get.comfirm.code');
@@ -40,31 +40,31 @@ Route::group(
         Route::get('new/password/{email}', [ForgetPassword::class, 'getNewPassword'])->name('get.new.password');
         Route::post('new/password', [ForgetPassword::class, 'newPassword'])->name('new.password');
 
-        //*****************************protected Route******************************************** */
+        //***********************************************protected Route******************************************** */
 
         Route::group(['middleware' => 'auth:admin'], function () {
 
-            //*****************************welcome******************************* */
+            //*********************************************welcome******************************* */
             Route::get('welcome', [WelcomeContrller::class, 'index'])->name('welcome');
 
-            //*****************************Roles Controller******************************* */
+            //******************************************Roles Controller******************************* */
             Route::group(['middleware' => 'can:roles'], function () {
 
                 Route::resource('roles', RolesController::class);
             });
 
-            //***************************************End************************************************** */
+            //**************************************************End************************************************** */
 
-            //*****************************admins Controller******************************* */
+            //********************************************admins Controller******************************* */
             Route::group(['middleware' => 'can:admins'], function () {
 
                 Route::resource('admins', AdminController::class);
                 Route::get('admins/status/{id}', [AdminController::class, 'changeStatus'])->name('admins.status');
             });
 
-            //***************************************End********************************************************** */
+            //*************************************************End********************************************************** */
 
-            //**********************************Shipping & Countries************************************************** */
+            //*****************************************Shipping & Countries************************************************** */
 
             Route::group(['middleware' => 'can:global_shipping'], function () {
                 Route::controller(WorldController::class)->group(function () {
@@ -82,9 +82,9 @@ Route::group(
                 });
             });
 
-            //*********************************** End Shipping ************************************************** */
+            //******************************************** End Shipping ************************************************** */
 
-            //*****************************categories Controller******************************* */
+            //******************************************categories Controller******************************* */
             Route::group(['middleware' => 'can:categories'], function () {
 
                 Route::resource('categories', CategoryController::class);
@@ -93,19 +93,30 @@ Route::group(
 
             });
 
-            //***************************************End********************************************************** */
+            //*************************************************End********************************************************** */
 
-            //*****************************admins Controller******************************* */
+            //******************************************Brand Controller******************************************************** */
             Route::group(['middleware' => 'can:brands'], function () {
 
                 Route::resource('brands', BrandController::class);
                 Route::get('brands-all',[BrandController::class, 'getAll'])->name('brands.all');
                 Route::get('brands/status/{id}', [BrandController::class, 'changeStatus'])->name('brands.status');
-                Route::post('brands/image/{id}', [BrandController::class, 'deleteImage'])->name('brands.imageBrand');
+
 
             });
 
-            //***************************************End********************************************************** */
+            //************************************************End********************************************************** */
+            //******************************************Coupon Controller******************************************************** */
+            Route::group(['middleware' => 'can:coupons'], function () {
+
+                Route::resource('coupons', CouponController::class);
+                Route::get('coupons-all',[CouponController::class, 'getAll'])->name('coupons.all');
+                Route::get('coupons/status/{id}', [BrandController::class, 'changeStatus'])->name('coupons.status');
+
+
+            });
+
+            //************************************************End Coupon********************************************************** */
 
 
         });
